@@ -99,3 +99,6 @@ gsp-target/
 
 ## File-based project format:
 *.iws
+
+*.log
+.vscode/
