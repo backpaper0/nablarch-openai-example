@@ -26,6 +26,9 @@
 
   <!--パッケージマッピングの設定 -->
   <component name="packageMapping" class="nablarch.integration.router.PathOptionsProviderRoutesMapping">
+    <property name="delegateFactory">
+        <component class="nablarch.fw.handler.SystemRepositoryDelegateFactory"/>
+    </property>
     <property name="pathOptionsProvider">
       <component class="nablarch.integration.router.jaxrs.JaxRsPathOptionsProvider">
         <property name="applicationPath" value="${nablarch.webApi.applicationPath}"/>
@@ -93,7 +96,7 @@
     </property>
   </component>
 
-  <component name="openai" class="com.example.OpenAIClientFactory">
+  <component name="openaiClient" class="com.example.OpenAIClientFactory">
     <property name="openAiApiKey" value="${openai.apikey}"/>
   </component>
 </component-configuration>

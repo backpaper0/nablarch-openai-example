@@ -1,1 +1,2 @@
+com.example.ComponentDefinitionLoader
 nablarch.core.repository.di.config.externalize.OsEnvironmentVariableExternalizedLoader

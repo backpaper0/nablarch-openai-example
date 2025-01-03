@@ -10,6 +10,7 @@ OpenAIクライアントは https://platform.openai.com/docs/libraries で紹介
 ## 設計メモ
 
 OpenAIクライアントはNablarchのコンポーネントとして登録して`SystemRepository`から取得して使用する。
+Actionクラスを[アノテーションでコンポーネント登録](https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/repository.html#repository-inject-annotation-component)してOpenAIクライアントをコンストラクタインジェクションすることにする。
 
 Azure OpenAI client library for Javaではクライアントをビルダーで構築するため、Nablarchでコンポーネント登録する際は[ファクトリクラス](https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/repository.html#repository-factory-injection)を用いている。
 
