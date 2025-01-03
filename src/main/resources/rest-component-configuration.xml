@@ -93,4 +93,7 @@
     </property>
   </component>
 
+  <component name="openai" class="com.example.OpenAIClientFactory">
+    <property name="openAiApiKey" value="${openai.apikey}"/>
+  </component>
 </component-configuration>
