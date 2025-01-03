@@ -4,12 +4,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://tis.co.jp/nablarch/component-configuration"
     xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  https://nablarch.github.io/schema/component-configuration.xsd">
 
-  <!-- テーブル定義 -->
-  <import file="nablarch/schema-config.xml" />
-
-  <!-- コード機能 -->
-  <import file="nablarch/common/code.xml"/>
-
   <!-- メッセージ機能の設定 -->
   <import file="nablarch/core/message-by-property-files.xml"/>
 
@@ -25,15 +19,6 @@
   <!-- 環境設定ファイル -->
   <config-file file="common.properties"/>
   <config-file file="env.properties"/>
-
-  <!-- データベース設定 -->
-  <!--
-  下記設定ファイルを使用することで、JNDIを用いてコネクションがルックアップされる
-  ルックアップに使用する名前は、configファイル中で、「nablarch.connectionFactory.jndiResourceName」というプレースホルダーに設定する。
-
-  ローカルのデータソースからコネクションを取得したい場合は、アーキタイプから生成した直後のプロジェクトに含まれるdb-for-webui_dev.xmlを参考に設定すること。
-  -->
-  <import file="nablarch/webui/db-for-webui.xml"/>
 
   <!-- スレッドコンテキストハンドラ -->
   <import file="nablarch/webui/threadcontext-for-webui.xml"/>
@@ -55,10 +40,6 @@
       </component>
     </property>
   </component>
-
-  <!-- ダイアレクト設定 -->
-  <!-- TODO:使用するDBに合わせてダイアレクトを設定すること -->
-  <component name="dialect" class="nablarch.core.db.dialect.H2Dialect" />
 
 
   <!-- ハンドラキュー構成 -->
@@ -95,10 +76,6 @@
 
         <component class="nablarch.fw.jaxrs.JaxRsAccessLogHandler"/>
 
-        <component-ref name="dbConnectionManagementHandler"/>
-
-        <component-ref name="transactionManagementHandler"/>
-
         <component-ref name="packageMapping"/>
       </list>
     </property>
@@ -110,10 +87,6 @@
       <list>
         <!-- パッケージマッピング -->
         <component-ref name="packageMapping" />
-        <!-- コードのローダ -->
-        <component-ref name="codeLoader" />
-        <!-- コードのキャッシュ -->
-        <component-ref name="codeCache" />
         <!-- リソースのキャッシュ -->
         <component-ref name="stringResourceCache" />
       </list>

@@ -1,10 +1,8 @@
 package com.example;
 
-import com.example.dto.SampleUserListDto;
-import com.example.entity.SampleUser;
-import nablarch.common.dao.EntityList;
-import nablarch.common.dao.UniversalDao;
 import nablarch.fw.web.HttpRequest;
+
+import java.util.Map;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -31,25 +29,7 @@ public class SampleAction {
     @GET
     @Path("/json")
     @Produces(MediaType.APPLICATION_JSON)
-    public EntityList<SampleUser> findProducesJson(HttpRequest req) {
-        return UniversalDao.findAll(SampleUser.class);
+    public Object findProducesJson(HttpRequest req) {
+        return Map.of("message", "Hello World");
     }
-
-    /**
-     * 検索処理。
-     * <p>
-     * 応答にXMLを使用する。
-     * </p>
-     *
-     * @param req HTTPリクエスト
-     * @return ユーザ情報(XML)
-     */
-    @GET
-    @Path("/xml")
-    @Produces(MediaType.APPLICATION_XML)
-    public SampleUserListDto findProducesXml(HttpRequest req) {
-        EntityList<SampleUser> sampleUserList = UniversalDao.findAll(SampleUser.class);
-        return new SampleUserListDto(sampleUserList);
-    }
-
 }
